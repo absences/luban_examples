@@ -37,8 +37,6 @@ public partial class Tables
     public test.TbTestString TbTestString {get; }
     public test.TbDemoGroup TbDemoGroup {get; }
     public test.TbDemoGroup_C TbDemoGroupC {get; }
-    public test.TbDemoGroup_S TbDemoGroupS {get; }
-    public test.TbDemoGroup_E TbDemoGroupE {get; }
     public test.TbTestGlobal TbTestGlobal {get; }
     public test.TbTestBeRef TbTestBeRef {get; }
     public test.TbTestBeRef2 TbTestBeRef2 {get; }
@@ -58,6 +56,8 @@ public partial class Tables
     public test.TbPath TbPath {get; }
     public test.TbTestMapper TbTestMapper {get; }
     public test.TbDefineFromExcel2 TbDefineFromExcel2 {get; }
+    public TbAutoImport1 TbAutoImport1 {get; }
+    public test.TbAutoImport2 TbAutoImport2 {get; }
 
     public Tables(System.Func<string, ByteBuf> loader)
     {
@@ -82,8 +82,6 @@ public partial class Tables
         TbTestString = new test.TbTestString(loader("test_tbteststring"));
         TbDemoGroup = new test.TbDemoGroup(loader("test_tbdemogroup"));
         TbDemoGroupC = new test.TbDemoGroup_C(loader("test_tbdemogroup_c"));
-        TbDemoGroupS = new test.TbDemoGroup_S(loader("test_tbdemogroup_s"));
-        TbDemoGroupE = new test.TbDemoGroup_E(loader("test_tbdemogroup_e"));
         TbTestGlobal = new test.TbTestGlobal(loader("test_tbtestglobal"));
         TbTestBeRef = new test.TbTestBeRef(loader("test_tbtestberef"));
         TbTestBeRef2 = new test.TbTestBeRef2(loader("test_tbtestberef2"));
@@ -103,6 +101,8 @@ public partial class Tables
         TbPath = new test.TbPath(loader("test_tbpath"));
         TbTestMapper = new test.TbTestMapper(loader("test_tbtestmapper"));
         TbDefineFromExcel2 = new test.TbDefineFromExcel2(loader("test_tbdefinefromexcel2"));
+        TbAutoImport1 = new TbAutoImport1(loader("tbautoimport1"));
+        TbAutoImport2 = new test.TbAutoImport2(loader("test_tbautoimport2"));
         ResolveRef();
     }
     
@@ -129,8 +129,6 @@ public partial class Tables
         TbTestString.ResolveRef(this);
         TbDemoGroup.ResolveRef(this);
         TbDemoGroupC.ResolveRef(this);
-        TbDemoGroupS.ResolveRef(this);
-        TbDemoGroupE.ResolveRef(this);
         TbTestGlobal.ResolveRef(this);
         TbTestBeRef.ResolveRef(this);
         TbTestBeRef2.ResolveRef(this);
@@ -150,6 +148,8 @@ public partial class Tables
         TbPath.ResolveRef(this);
         TbTestMapper.ResolveRef(this);
         TbDefineFromExcel2.ResolveRef(this);
+        TbAutoImport1.ResolveRef(this);
+        TbAutoImport2.ResolveRef(this);
     }
 }
 

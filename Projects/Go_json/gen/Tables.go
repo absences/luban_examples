@@ -51,8 +51,11 @@ type Tables struct {
     TbCompositeJsonTable3 *TestTbCompositeJsonTable3
     TbExcelFromJsonMultiRow *TestTbExcelFromJsonMultiRow
     TbTestScriptableObject *TestTbTestScriptableObject
+    TbPath *TestTbPath
     TbTestMapper *TestTbTestMapper
     TbDefineFromExcel2 *TestTbDefineFromExcel2
+    TbAutoImport1 *TbAutoImport1
+    TbAutoImport2 *TestTbAutoImport2
 }
 
 func NewTables(loader JsonLoader) (*Tables, error) {
@@ -294,6 +297,12 @@ func NewTables(loader JsonLoader) (*Tables, error) {
     if tables.TbTestScriptableObject, err = NewTestTbTestScriptableObject(buf) ; err != nil {
         return nil, err
     }
+    if buf, err = loader("test_tbpath") ; err != nil {
+        return nil, err
+    }
+    if tables.TbPath, err = NewTestTbPath(buf) ; err != nil {
+        return nil, err
+    }
     if buf, err = loader("test_tbtestmapper") ; err != nil {
         return nil, err
     }
@@ -304,6 +313,18 @@ func NewTables(loader JsonLoader) (*Tables, error) {
         return nil, err
     }
     if tables.TbDefineFromExcel2, err = NewTestTbDefineFromExcel2(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("tbautoimport1") ; err != nil {
+        return nil, err
+    }
+    if tables.TbAutoImport1, err = NewTbAutoImport1(buf) ; err != nil {
+        return nil, err
+    }
+    if buf, err = loader("test_tbautoimport2") ; err != nil {
+        return nil, err
+    }
+    if tables.TbAutoImport2, err = NewTestTbAutoImport2(buf) ; err != nil {
         return nil, err
     }
     return tables, nil
